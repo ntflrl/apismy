@@ -7,4 +7,5 @@ def state(State):
     hook.send_sync(content=State)
     return jsonify({"newState": State})
 if __name__ == "__main__":
-    app.run(debug=False)
+    port_nr = int(os.environ.get("PORT", 5001))
+    app.run(port=port_nr, host='0.0.0.0', debug=False)
