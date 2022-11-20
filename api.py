@@ -7,6 +7,9 @@ hook = discordwebhook.Webhook(url='https://discord.com/api/webhooks/104379601083
 def state(State):
     hook.send_sync(content=State)
     return jsonify({"newState": State})
+@app.route('', methods=['GET'])
+def home():
+    return "home page not working. bye."
 if __name__ == "__main__":
     port_nr = int(os.environ.get("PORT", 5001))
     app.run(port=port_nr, host='0.0.0.0', debug=False)
